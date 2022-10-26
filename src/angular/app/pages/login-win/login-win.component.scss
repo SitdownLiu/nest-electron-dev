@@ -1,0 +1,106 @@
+@import '~ng-devui/styles-var/devui-var.scss';
+
+.layout {
+  padding: 5px;
+  .layout-wrapper {
+    min-height: 340px;
+    background-image: url('../../../assets/loginbg.png');
+    border-radius: 5px;
+    box-shadow: 0 0 5px $devui-icon-fill;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+d-header {
+  .top {
+    display: flex;
+    justify-content: space-between;
+    .title {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+
+      img {
+        width: 22px;
+        height: 22px;
+      }
+
+      .text {
+        font-family: 'Courier New', Courier, monospace;
+        padding-left: 5px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .sub-title {
+    text-align: center;
+
+    .welcome {
+      font-size: 24px;
+      color: $devui-base-bg-dark;
+    }
+  }
+}
+
+d-content {
+  padding-bottom: 30px;
+  text-align: center;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form {
+    width: 300px;
+
+    .item {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .label {
+        padding-top: 20px;
+        font-size: 26px;
+        color: $devui-red-20;
+        width: 40px;
+      }
+
+      .value,
+      .option {
+        width: 255px;
+        input {
+          height: 40px;
+          font-size: 16px;
+        }
+      }
+
+      .option {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .text {
+          color: #000000;
+        }
+      }
+    }
+  }
+}
+
+d-footer {
+  color: $devui-light-text;
+  padding: 8px 24px;
+}

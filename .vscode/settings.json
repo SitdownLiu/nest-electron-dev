@@ -1,0 +1,17 @@
+{
+  "cSpell.words": [
+    "anatine",
+    "bytenode",
+    "devkit",
+    "esbuild",
+    "kolorist",
+    "Microservice",
+    "microservices",
+    "nestjs",
+    "nsis",
+    "outdir",
+    "outfile",
+    "postuninstall"
+  ],
+  "vsicons.presets.nestjs": true
+}
