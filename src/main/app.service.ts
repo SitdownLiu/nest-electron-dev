@@ -1,7 +1,5 @@
 import { WinService } from './services/win.service';
 import { Auth } from './entities/auth.entity';
-import { join } from 'path';
-import { app, BrowserWindow } from 'electron';
 import { Inject, Injectable } from '@nestjs/common';
 import { exec } from 'child_process';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -71,6 +69,7 @@ export class AppService {
     //保存用户
     await this.auth.save(localUser);
 
+    await this.winService.quitIndexWin();
     this.winService.createIndexWin(accessToken);
     setTimeout(() => this.winService.quitLoginWin(), 300);
   }

@@ -1,3 +1,4 @@
+import { isEmpty } from 'class-validator';
 import { menuBuilder } from './../global/win.menus';
 import { join } from 'path';
 import { BrowserWindow, app, Menu, Tray } from 'electron';
@@ -53,14 +54,16 @@ export class WinService {
   /**
    * @主窗口 --------------------------------------------------------------------------------
    */
-
+  // 系统托盘
   private trayBuilder() {
     const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
     const tray = new Tray(icon);
     const menus = Menu.buildFromTemplate([
       {
         label: '重新登录',
-        click: () => {},
+        click: () => {
+          this.createLoginWin();
+        },
       },
       {
         role: 'minimize',
@@ -88,7 +91,7 @@ export class WinService {
   }
 
   //`TODO:` 创建主窗口
-  createIndexWin(token) {
+  public createIndexWin(token) {
     const URL = this.isDev ? `http://localhost:4200/#/IndexWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#IndexWin')}`;
     const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
 
@@ -117,5 +120,13 @@ export class WinService {
     this.tray.on('minimize', () => {
       console.log('123');
     });
+  }
+
+  //`TODO:` 关闭主窗口
+  public quitIndexWin() {
+    if (!isEmpty(this.indexWin)) {
+      this.indexWin.destroy();
+      this.tray.destroy();
+    }
   }
 }

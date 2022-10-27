@@ -1,4 +1,3 @@
-import { join } from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 export const SqliteModule = TypeOrmModule.forRoot({

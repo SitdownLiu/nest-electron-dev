@@ -1,6 +1,6 @@
 {
   "name": "nest-electron-dev",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "pnpm@7.13.4",
   "description": "重大传染病智慧管理平台-桌面客户端(ia32+x64)-主程序",
   "main": "dist/main/index.js",
