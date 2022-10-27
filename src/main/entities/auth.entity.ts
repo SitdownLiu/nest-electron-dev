@@ -1,8 +1,8 @@
-import { Column, Entity, PrimaryColumn, CreateDateColumn, DeleteDateColumn, UpdateDateColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, DeleteDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity({ name: 'a_auth' })
 export class Auth {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ comment: '登录令牌TOKEN' })

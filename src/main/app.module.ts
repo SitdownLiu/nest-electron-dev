@@ -12,6 +12,6 @@ import { JwtModule, JwtService } from '@nestjs/jwt';
 @Module({
   imports: [GlobalModule, JwtTokenModule, SqliteModule, TypeOrmModule.forFeature([Auth])],
   controllers: [AppController],
-  providers: [AppService, WinService, JwtService],
+  providers: [AppService, WinService],
 })
 export class AppModule {}

@@ -19,12 +19,12 @@ export const trayBuilder = (win) => {
       role: 'minimize',
       label: '最小化',
       click: () => {
-        win.minimize();
+        // win.minimize();
       },
     },
     {
-      label: '退出',
       role: 'quit',
+      label: '退出',
       click: () => {
         app.quit();
       },

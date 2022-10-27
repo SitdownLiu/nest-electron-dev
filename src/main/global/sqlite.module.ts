@@ -6,5 +6,5 @@ export const SqliteModule = TypeOrmModule.forRoot({
   type: 'sqlite',
   database: 'data/db',
   autoLoadEntities: true,
-  synchronize: true,
+  synchronize: false,
 });

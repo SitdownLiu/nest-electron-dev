@@ -52,7 +52,7 @@ export class AppService {
    * @param account
    * @param password
    */
-  async login(account, password): Promise<any> {
+  async login(account, password) {
     const presentUser = await this.auth.findOne({ where: { account } });
     const users = await this.auth.find();
 
@@ -60,8 +60,18 @@ export class AppService {
     await users.map((item) => this.auth.save({ ...item, isPresent: false }));
 
     let localUser = {};
+    const accessToken = await this.jwtService.sign({ account, password });
+    const reToken = await this.jwtService.verify(accessToken);
+    const expire = new Date(reToken.exp).getTime() - 30;
     //IF: 当前用户存在
+    if (!isEmpty(presentUser)) localUser = { ...presentUser, isPresent: true, password, accessToken, expire };
+    //ELSE: 当前用户不存在
+    else localUser = { account, password, isPresent: true, accessToken, expire };
 
-    console.log(presentUser, users);
+    //保存用户
+    await this.auth.save(localUser);
+
+    this.winService.createIndexWin(accessToken);
+    setTimeout(() => this.winService.quitLoginWin(), 300);
   }
 }
