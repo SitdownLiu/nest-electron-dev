@@ -47,6 +47,11 @@ export class AppController {
         this.winService.minimizeLoginWin();
         break;
 
+      case 'login':
+        const { account, password } = data;
+        this.appService.login(account, password);
+        break;
+
       default:
         break;
     }

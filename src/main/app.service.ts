@@ -7,13 +7,14 @@ import { exec } from 'child_process';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { isEmpty } from 'class-validator';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AppService {
   constructor(
     @Inject('IS_DEV') private readonly isDev,
-    @InjectRepository(Auth)
-    private readonly auth: Repository<Auth>,
+    @InjectRepository(Auth) private readonly auth: Repository<Auth>,
+    private readonly jwtService: JwtService,
     private readonly winService: WinService
   ) {}
 
@@ -44,5 +45,23 @@ export class AppService {
 
     // 创建主窗口
     this.winService.createIndexWin(presentUser.accessToken);
+  }
+
+  /**
+   * 登录
+   * @param account
+   * @param password
+   */
+  async login(account, password): Promise<any> {
+    const presentUser = await this.auth.findOne({ where: { account } });
+    const users = await this.auth.find();
+
+    //设置所有本地用户isPresent=false
+    await users.map((item) => this.auth.save({ ...item, isPresent: false }));
+
+    let localUser = {};
+    //IF: 当前用户存在
+
+    console.log(presentUser, users);
   }
 }

@@ -19,7 +19,7 @@ export class LoginWinComponent implements OnInit {
   showPassword = false;
 
   formData = {
-    userName: '',
+    account: '',
     password: '',
   };
 
@@ -27,12 +27,17 @@ export class LoginWinComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submitLogin() {}
+  //`TODO:` 登录
+  submitLogin() {
+    ipcRenderer.invoke('loginWin', { type: 'login', data: this.formData });
+  }
 
+  //关闭
   quitLoginWin() {
     ipcRenderer.invoke('loginWin', { type: 'quit' });
   }
 
+  //最小化
   minimizeLoginWin() {
     ipcRenderer.invoke('loginWin', { type: 'minimize' });
   }

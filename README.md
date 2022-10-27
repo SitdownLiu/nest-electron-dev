@@ -10,7 +10,7 @@
 
 UI界面使用的Angular并集成了DevUI库，让开发者在编写UI界面时能使用与NestJS相同的语法，感觉这样的编码模式很酷。考虑到开发者的使用习惯，我也会延迟发布For Vue分支，同样集成DevUI库。
 
-编译工具使用了更快速更轻量级的Vite，开发者可以使用“vite build”快速打包发布自己的应用程序。但遗憾的是目前[@angular/cli](https://github.com/angular/angular-cli.git)还未支持Vite，使用For Angular分支需要先"ng"再"vite"。For Vue不会受到影响。
+编译工具使用了更快速更轻量级的Vite，开发者可以使用“vite build”快速打包发布自己的应用程序。但遗憾的是目前[@angular/cli](https://github.com/angular/angular-cli.git)还未支持Vite，使用For Angular分支需要先"ng"再"vite"。但你不用担心，只要ngc一旦支持vite，本框架也会第一时间同步更新。For Vue不会受到上述影响。
 
 ## 快速开始
 
