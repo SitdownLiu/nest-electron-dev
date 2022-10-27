@@ -5,6 +5,21 @@ export class Auth {
   @PrimaryColumn()
   id: number;
 
+  @Column({ comment: '登录令牌TOKEN' })
+  accessToken: string;
+
+  @Column({ comment: '令牌过期时间' })
+  expire: Date;
+
+  @Column({ comment: '账号' })
+  account: string;
+
+  @Column({ comment: '密码' })
+  password: string;
+
+  @Column({ comment: '是否当前用户', default: true })
+  isPresent: boolean;
+
   @CreateDateColumn({
     type: 'datetime',
     name: 'create_at',
@@ -26,16 +41,4 @@ export class Auth {
     select: false,
   })
   deleteAt: Date;
-
-  @Column({ comment: '登录令牌TOKEN' })
-  accessToken: string;
-
-  @Column({ comment: '令牌过期时间' })
-  expire: Date;
-
-  @Column({ comment: '账号' })
-  account: string;
-
-  @Column({ comment: '密码' })
-  password: string;
 }

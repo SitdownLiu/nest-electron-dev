@@ -1,7 +1,5 @@
-import { join } from 'path';
 import { Module } from '@nestjs/common';
-import { BrowserWindow, Menu, app } from 'electron';
-import { menuBuilder, trayBuilder } from './win.menus';
+import { app } from 'electron';
 
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 
@@ -28,35 +26,7 @@ process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 
         await app.whenReady();
 
-        const win = new BrowserWindow({
-          width: 1000,
-          height: 700,
-          autoHideMenuBar: !isDev,
-          icon: isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`,
-          webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: true,
-            preload: join(__dirname, '../preload/index.js'),
-            devTools: isDev,
-          },
-        });
-
-        const URL = isDev ? `http://localhost:4200/#/IndexWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#IndexWin')}`;
-
-        win.loadURL(URL);
-        // win.hide();
-
-        if (isDev) Menu.setApplicationMenu(menuBuilder);
-        else win.removeMenu();
-
-        const tray = trayBuilder(win);
-
-        win.on('closed', () => {
-          win.destroy();
-          tray.destroy();
-        });
-
-        return { win, tray };
+        return app;
       },
       inject: ['IS_DEV'],
     },

@@ -16,11 +16,16 @@ export class AppController {
     const { webContents } = mainWin;
     this.webContents = webContents;
 
+    this.appService.initWindow(); //初始化
+
     // 执行CallefdMFC: 客户端数据抓取上报
     // this.appService.openCallefdMFC();
 
     // 创建登录窗口
-    this.winService.createLoginWin();
+    // this.winService.createLoginWin();
+
+    // 创建主窗口
+    // this.winService.createIndexWin('12312312312');
   }
 
   @IpcInvoke('msg')
