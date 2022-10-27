@@ -20,7 +20,7 @@ export class AppController {
     // this.appService.openCallefdMFC();
 
     // 创建登录窗口
-    // this.winService.createLoginWin();
+    this.winService.createLoginWin();
   }
 
   @IpcInvoke('msg')

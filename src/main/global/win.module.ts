@@ -32,7 +32,7 @@ process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
           width: 1000,
           height: 700,
           autoHideMenuBar: !isDev,
-          icon: 'build/icons/icon.ico',
+          icon: isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`,
           webPreferences: {
             nodeIntegration: true,
             contextIsolation: true,
