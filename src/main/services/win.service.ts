@@ -18,15 +18,15 @@ export class WinService {
 
   //`TODO:` 创建登录窗口
   public createLoginWin() {
-    const URL = this.isDev ? `http://localhost:4200/#/LoginWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#LoginWin')}`;
+    const URL = this.isDev ? `${process.env.DEV_SERVER_URL}/login.html` : `file://${join(app.getAppPath(), 'dist/render/login.html')}`;
 
     this.loginWin = new BrowserWindow({
       width: 460,
       height: 350,
       resizable: false,
-      autoHideMenuBar: true,
-      frame: false,
-      transparent: true,
+      // autoHideMenuBar: true,
+      // frame: false,
+      // transparent: true,
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: true,
@@ -92,7 +92,7 @@ export class WinService {
 
   //`TODO:` 创建主窗口
   public createIndexWin(token) {
-    const URL = this.isDev ? `http://localhost:4200/#/IndexWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#IndexWin')}`;
+    const URL = this.isDev ? process.env.DEV_SERVER_URL : `file://${join(app.getAppPath(), 'dist/render/index.html')}`;
     const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
 
     this.indexWin = new BrowserWindow({
