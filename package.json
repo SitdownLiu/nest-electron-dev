@@ -5,15 +5,10 @@
   "description": "重大传染病智慧管理平台-桌面客户端(ia32+x64)-主程序",
   "main": "dist/main/index.js",
   "scripts": {
-    "dev:ng": "ng serve",
-    "dev:ne": "rimraf dist && vite",
-    "build:ng": "ng build",
-    "build:ne": "rimraf dist && vite build",
-    "build:watch:ng": "rimraf src/render && ng build --watch --configuration development",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "dev": "rimraf dist && vite",
+    "build": "rimraf dist && vite build",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder uninstall-app-deps",
     "rebuild": "electron-rebuild -f -w sqlite3"
   },
   "dependencies": {
