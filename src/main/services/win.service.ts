@@ -40,6 +40,7 @@ export class WinService {
     });
 
     this.loginWin.loadURL(URL);
+    this.isDev ? Menu.setApplicationMenu(menuBuilder) : this.indexWin.removeMenu();
   }
 
   //`TODO:` 退出登录窗口
