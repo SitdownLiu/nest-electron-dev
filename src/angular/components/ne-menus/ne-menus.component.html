@@ -1,0 +1,30 @@
+<div class="ne-menus">
+  <div class="menus">
+    <div class="logo">
+      <img [src]="logoSrc" />
+    </div>
+    <div class="menu">
+      <div class="item" *ngFor="let item of menus; index as i" [ngClass]="item.actived ? 'actived' : ''" (click)="activedMenu(i)">
+        <i class="icon" [ngClass]="item.icon"></i>
+        <span class="text">{{ item.title }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="sub-menus" *ngIf="subMenus.length > 0">
+    <div class="title">{{ title }}</div>
+    <d-accordion
+      class="menu"
+      [accordionType]="'embed'"
+      [data]="subMenus"
+      [linkType]="'routerLink'"
+      [itemTemplate]="itemTemplate"
+    ></d-accordion>
+  </div>
+</div>
+
+<ng-template #itemTemplate let-item="item">
+  <div class="itemTemplate">
+    <i class="icon" [ngClass]="item.icon"></i>
+    <span class="text"> {{ item.title }} </span>
+  </div>
+</ng-template>

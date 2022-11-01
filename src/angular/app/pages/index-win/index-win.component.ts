@@ -15,20 +15,19 @@ export class IndexWinComponent implements OnInit {
   faEnvelope = faEnvelope;
 
   logoSrc = 'angular/assets/logo.png';
-  menu = [
+  menus = [
     {
-      title: '内容一',
-      open: true,
-      children: [{ title: '子内容1' }, { title: '子内容2' }, { title: '子内容3' }],
+      title: '简介',
+      icon: 'icon-base-info2',
+      link: '/description',
     },
     {
-      title: '内容二',
-      children: [{ title: '子内容1' }, { title: '子内容2' }, { title: '子内容3' }],
-    },
-    {
-      title: '内容三（默认展开）',
-      open: true,
-      children: [{ title: '子内容1(禁用)', disabled: true }, { title: '子内容2(默认激活)', active: true }, { title: '子内容3' }],
+      title: '基础功能',
+      icon: 'icon-more-func',
+      children: [
+        { title: '窗口', icon: 'icon-copy-to-new', link: '/window' },
+        { title: '进程通信', icon: 'icon-depend', link: '/ipc-communication' },
+      ],
     },
   ];
 

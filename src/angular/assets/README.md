@@ -1,4 +1,6 @@
-![](logo-ne.png)
+![](.\logo-ne.png)
+
+
 
 # NE框架： NestJS + Electron  & Esbuild 
 

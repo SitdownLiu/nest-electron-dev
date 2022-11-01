@@ -1,4 +1,7 @@
 <d-layout class="layout-wrapper">
+  <d-aside>
+    <app-ne-menus [menus]="menus"></app-ne-menus>
+  </d-aside>
   <d-layout>
     <d-header>
       <div class="left">
@@ -11,7 +14,9 @@
         </d-button>
       </div>
     </d-header>
-    <d-content>Content</d-content>
+    <d-content class="layout-wrapper-content">
+      <router-outlet></router-outlet>
+    </d-content>
     <d-footer>
       <div class="item">
         <fa-icon [icon]="faAt"></fa-icon>
@@ -33,8 +38,4 @@
       </div>
     </d-footer>
   </d-layout>
-
-  <d-aside>
-    <d-accordion [accordionType]="'embed'" [data]="menu" class="menu"></d-accordion>
-  </d-aside>
 </d-layout>

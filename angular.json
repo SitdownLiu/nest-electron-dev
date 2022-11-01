@@ -24,8 +24,21 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/angular/angular/favicon.ico", "src/angular/assets"],
-            "styles": ["src/angular/styles.scss", "node_modules/ng-devui/devui.min.css"],
-            "scripts": []
+            "styles": [
+              "src/angular/styles.scss",
+              "node_modules/ng-devui/devui.min.css",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/katex/dist/katex.min.css"
+            ],
+            "scripts": [
+              "node_modules/marked/marked.min.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/components/prism-csharp.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/clipboard/dist/clipboard.min.js",
+              "node_modules/katex/dist/katex.min.js",
+              "node_modules/katex/dist/contrib/auto-render.min.js"
+            ]
           },
           "configurations": {
             "production": {

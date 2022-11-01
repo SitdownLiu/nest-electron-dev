@@ -7,7 +7,7 @@ import { IndexWinComponent } from './pages/index-win/index-win.component';
 const routes: Routes = [
   {
     path: 'IndexWin',
-    component: IndexWinComponent,
+    loadChildren: () => import('./pages/index-win/index-win.module').then((m) => m.IndexWinModule),
   },
   {
     path: 'LoginWin',
