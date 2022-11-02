@@ -18,6 +18,7 @@
       [data]="subMenus"
       [linkType]="'routerLink'"
       [itemTemplate]="itemTemplate"
+      (itemClick)="activedSubMenu($event)"
     ></d-accordion>
   </div>
 </div>

@@ -43,8 +43,8 @@ const config = {
     target: [
       {
         target: 'nsis',
-        arch: 'ia32',
-        // arch: 'x64',
+        // arch: 'ia32',
+        arch: 'x64',
         // arch: ['x64', 'ia32'], // 32 bit + 64 bit
       },
     ],

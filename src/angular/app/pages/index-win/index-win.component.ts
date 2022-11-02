@@ -17,21 +17,40 @@ export class IndexWinComponent implements OnInit {
   logoSrc = 'angular/assets/logo.png';
   menus = [
     {
+      id: 1,
       title: '简介',
       icon: 'icon-base-info2',
       link: '/description',
     },
     {
+      id: 2,
       title: '基础功能',
       icon: 'icon-more-func',
       children: [
-        { title: '窗口', icon: 'icon-copy-to-new', link: '/window' },
-        { title: '进程通信', icon: 'icon-depend', link: '/ipc-communication' },
+        { id: 201, title: '窗口', icon: 'icon-copy-to-new', link: '/window' },
+        { id: 202, title: '进程通信', icon: 'icon-depend', link: '/ipc-communication' },
       ],
+    },
+  ];
+
+  tabs = [
+    {
+      id: 1,
+      title: '简介',
+      icon: 'icon-base-info2',
+      link: '/description',
     },
   ];
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  /**
+   * 监听: 二级菜单
+   * @param item
+   */
+  onActivedSubMenu(item: any) {
+    this.tabs.push(item);
+  }
 }

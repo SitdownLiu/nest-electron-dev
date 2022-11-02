@@ -1,6 +1,7 @@
 import { isEmpty } from 'class-validator';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccordionItemClickEvent } from 'ng-devui';
 
 @Component({
   selector: 'app-ne-menus',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./ne-menus.component.scss'],
 })
 export class NeMenusComponent implements OnInit {
-  @Input() menus: any = [];
+  @Input() menus: any[] = [];
+  @Output() actived = new EventEmitter();
 
   logoSrc = 'angular/assets/logo.png';
 
@@ -21,6 +23,10 @@ export class NeMenusComponent implements OnInit {
     this.activedMenu();
   }
 
+  /**
+   * 切换主菜单
+   * @param index
+   */
   activedMenu(index: number = 0) {
     this.menus.forEach((item: any, i: number) => {
       item.actived = i === index ? true : false;
@@ -31,5 +37,14 @@ export class NeMenusComponent implements OnInit {
         if (isEmpty(item.children)) this.router.navigate([item.link]);
       }
     });
+  }
+
+  /**
+   * 点击: 二级菜单
+   * @param event
+   */
+  activedSubMenu(event: AccordionItemClickEvent) {
+    const { item } = event;
+    this.actived.emit(item);
   }
 }

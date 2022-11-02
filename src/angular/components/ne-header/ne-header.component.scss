@@ -1,0 +1,9 @@
+.ne-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .user {
+    width: 25vw;
+  }
+}

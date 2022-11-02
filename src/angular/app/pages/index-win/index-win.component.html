@@ -1,18 +1,10 @@
 <d-layout class="layout-wrapper">
   <d-aside>
-    <app-ne-menus [menus]="menus"></app-ne-menus>
+    <app-ne-menus [menus]="menus" (actived)="onActivedSubMenu($event)"></app-ne-menus>
   </d-aside>
   <d-layout>
     <d-header>
-      <div class="left">
-        <img [src]="logoSrc" height="26px" width="26px" />
-        <span class="text">基于NestJS+Electron实现的桌面软件开发框架</span>
-      </div>
-      <div class="right">
-        <d-button bsStyle="common" bsSize="xs" width="20" title="Github">
-          <fa-icon [icon]="faGithub"></fa-icon>
-        </d-button>
-      </div>
+      <app-ne-header [menus]="tabs"></app-ne-header>
     </d-header>
     <d-content class="layout-wrapper-content">
       <router-outlet></router-outlet>
