@@ -12,7 +12,7 @@ export class NeMenusComponent implements OnInit {
   @Input() menus: any[] = [];
   @Output() actived = new EventEmitter();
 
-  logoSrc = 'angular/assets/logo.png';
+  logoSrc = 'render/assets/logo.png';
 
   subMenus = [];
   title = '';

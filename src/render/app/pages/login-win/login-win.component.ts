@@ -13,7 +13,7 @@ export class LoginWinComponent implements OnInit {
   faUser = faUser;
   faUnlockKeyhole = faUnlockKeyhole;
 
-  logoSrc = 'angular/assets/logo.png';
+  logoSrc = 'render/assets/logo.png';
   formLayout: FormLayout = FormLayout.Horizontal;
 
   showPassword = false;

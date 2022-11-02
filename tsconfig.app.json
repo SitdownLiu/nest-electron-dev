@@ -21,11 +21,11 @@
     "lib": ["es2020", "dom"]
   },
   "paths": {
-    "@angular/*": ["src/angular/*"],
+    "@angular/*": ["src/render/*"],
     "@main/*": ["src/main/*"],
     "@common/*": ["src/common/*"]
   },
-  "files": ["src/angular/main.ts", "src/angular/polyfills.ts"],
+  "files": ["src/render/main.ts", "src/render/polyfills.ts"],
   "include": ["src/**/*.d.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

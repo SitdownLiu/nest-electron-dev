@@ -14,7 +14,7 @@ export class IndexWinComponent implements OnInit {
   faAt = faAt;
   faEnvelope = faEnvelope;
 
-  logoSrc = 'angular/assets/logo.png';
+  logoSrc = 'render/assets/logo.png';
   menus = [
     {
       id: 1,

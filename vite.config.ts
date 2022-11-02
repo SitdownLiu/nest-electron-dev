@@ -1,8 +1,8 @@
-import { join, resolve } from 'path'
-import { writeFileSync } from 'fs'
-import { defineConfig } from 'vite'
-import { compileFile } from 'bytenode'
-import { VitePluginElectronBuilder } from './plugin'
+import { join, resolve } from 'path';
+import { writeFileSync } from 'fs';
+import { defineConfig } from 'vite';
+import { compileFile } from 'bytenode';
+import { VitePluginElectronBuilder } from './plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,19 +34,18 @@ export default defineConfig({
     },
   },
   base: './',
-  build: {
-    outDir: join(__dirname, 'dist/render'),
-    emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        index: resolve(__dirname, 'src/render/index.html'),
-        // login: resolve(__dirname, 'src/render/login.html'),
-      },
-      output: {
-        chunkFileNames: 'static/js/[name]-[hash].js',
-        entryFileNames: 'static/js/[name]-[hash].js',
-        assetFileNames: 'assets/[name].[ext]',
-      },
-    },
-  },
-})
+  // build: {
+  //   outDir: join(__dirname, 'dist/render'),
+  //   emptyOutDir: true,
+  //   rollupOptions: {
+  //     input: {
+  //       index: resolve(__dirname, 'src/render/index.html'),
+  //     },
+  //     output: {
+  //       chunkFileNames: 'static/js/[name]-[hash].js',
+  //       entryFileNames: 'static/js/[name]-[hash].js',
+  //       assetFileNames: 'assets/[name].[ext]',
+  //     },
+  //   },
+  // },
+});
