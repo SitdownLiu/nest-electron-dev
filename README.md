@@ -1,4 +1,4 @@
-<img src="logo-ne.png" style="zoom:50%;" />
+<img src="logo-ne.png" width="256" height="256" div align="center" />
 
 # NE框架： NestJS + Electron  & Esbuild 
 
@@ -73,9 +73,7 @@ shamefully-hoist=true
 
 - SQLite3安装/编译失败
 
-  使用electron开发桌面程序，sqlite编译最容易出错，你需要提前安装好Python2.7([下载地址](https://www.python.org/downloads/))和vs2015([下载地址](https://visualstudio.microsoft.com/zh-hans/downloads/))
-  
-  安装Windows的相关环境
+  使用electron开发桌面程序，sqlite编译最容易出错，你需要提前安装好Python2.7([下载地址](https://www.python.org/downloads/))和vs2015([下载地址](https://visualstudio.microsoft.com/zh-hans/downloads/))，然后执行以下操作：
   
   ```bash
   #安装Windows的相关环境
@@ -92,5 +90,5 @@ shamefully-hoist=true
   
   如果在`.\node_moudles\sqlite3\lib\binding\`下多了一个`electron-v3.1-win32-x64`文件夹，其下名为`‘node_sqlite3.node’`的文件就是electron所需要的sqlite文件，到这里就已经安装完成了。
   
-  你也可以在[node-sqlite3]([GitHub - TryGhost/node-sqlite3: SQLite3 bindings for Node.js](https://github.com/TryGhost/node-sqlite3))寻找其他解决方案。
+  你也可以在[SQLite3 bindings for NodeJS](https://github.com/TryGhost/node-sqlite3)寻找其他解决方案。
 
