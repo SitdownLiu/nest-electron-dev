@@ -1,4 +1,4 @@
-![](logo-ne.png)
+<img src="logo-ne.png" style="zoom:50%;" />
 
 # NE框架： NestJS + Electron  & Esbuild 
 
@@ -12,7 +12,7 @@ UI界面使用的Angular并集成了DevUI库，让开发者在编写UI界面时�
 
 ## 环境要求
 
-```bash
+```basic
 nodejs v16.x
 npm v8.x
 node-gyp v9.x
@@ -33,7 +33,7 @@ typescript >= v4.5.x <= v4.8.x
 
 - For Angular: 
   
-  ```bash
+  ```basic
   # 安装依赖包
   yarn # npm install
   
@@ -48,7 +48,7 @@ typescript >= v4.5.x <= v4.8.x
   
 - For Vue
   
-  ```bash
+  ```basic
   # 安装依赖包
   yarn # npm install
   
@@ -61,14 +61,36 @@ typescript >= v4.5.x <= v4.8.x
 
 ## 使用PNPM请注意
 
-与`pnpm`一起使用，你需要调整你的`.npmrc`
-```
+与`pnpm`一起使用，你需要调整你的`.npmrc
+
+```bash
 node-linker=hoisted
-```
-```
 public-hoist-pattern=*
-```
-```
 shamefully-hoist=true
 ```
+
+## 常见问题
+
+- SQLite3安装/编译失败
+
+  使用electron开发桌面程序，sqlite编译最容易出错，你需要提前安装好Python2.7([下载地址](https://www.python.org/downloads/))和vs2015([下载地址](https://visualstudio.microsoft.com/zh-hans/downloads/))
+  
+  安装Windows的相关环境
+  
+  ```bash
+  #安装Windows的相关环境
+  npm install --global --production windows-build-tools
+  
+  #安装node-gyp
+  npm install -g node-gyp
+  
+  #安装并构建兼容electron的sqlite
+  npm install sqlite3 --build-from-source --runtime=electron --target=21.1.0 --dist-url=https://electronjs.org/headers
+  ```
+  
+  如果安装失败也许是你所在的网段被墙了，你可以使用网络代理、国内镜像或cnpm。
+  
+  如果在`.\node_moudles\sqlite3\lib\binding\`下多了一个`electron-v3.1-win32-x64`文件夹，其下名为`‘node_sqlite3.node’`的文件就是electron所需要的sqlite文件，到这里就已经安装完成了。
+  
+  你也可以在[node-sqlite3]([GitHub - TryGhost/node-sqlite3: SQLite3 bindings for Node.js](https://github.com/TryGhost/node-sqlite3))寻找其他解决方案。
 
