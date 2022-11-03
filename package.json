@@ -7,13 +7,12 @@
   "scripts": {
     "dev:ng": "ng serve",
     "dev:ne": "rimraf dist && vite",
-    "build:ng": "ng build",
+    "build:ng": "rimraf dist/render && ng build",
     "build:ne": "rimraf dist/main && rimraf dist/preload && vite build",
     "build:watch:ng": "rimraf dist/render && ng build --watch --configuration development",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps",
     "rebuild": "electron-rebuild -f -w sqlite3"
   },
   "dependencies": {

@@ -61,7 +61,7 @@ typescript >= v4.5.x <= v4.8.x
 
 ## 使用PNPM请注意
 
-与`pnpm`一起使用，你需要调整你的`.npmrc
+与`pnpm`一起使用，你需要调整你的`.npmrc`
 
 ```bash
 node-linker=hoisted
@@ -90,5 +90,19 @@ shamefully-hoist=true
   
   如果在`.\node_moudles\sqlite3\lib\binding\`下多了一个`electron-v3.1-win32-x64`文件夹，其下名为`‘node_sqlite3.node’`的文件就是electron所需要的sqlite文件，到这里就已经安装完成了。
   
-  你也可以在[SQLite3 bindings for NodeJS](https://github.com/TryGhost/node-sqlite3)寻找其他解决方案。
+  你也可以尝试手动构建支持electron的sqlite文件
+  
+  ```bash
+  #在package.json中添加脚本
+  "scripts": {
+      "postinstall": "electron-builder install-app-deps",
+      "rebuild": "electron-rebuild -f -w sqlite3"
+   },
+   
+   #执行脚本
+   npm run postinstall
+   npm run rebuild
+  ```
+  
+  在Windows平台上安装和编译SQLite3会碰到一些奇怪的程序异常，以上纯粹个人经验，你还可以在[SQLite3 bindings for NodeJS](https://github.com/TryGhost/node-sqlite3)寻找其他解决方案。
 
