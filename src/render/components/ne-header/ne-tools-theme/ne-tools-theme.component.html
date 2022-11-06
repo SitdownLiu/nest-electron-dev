@@ -1,0 +1,20 @@
+<div class="ne-tools-theme">
+  <d-icon
+    dPopover
+    [controlled]="true"
+    [position]="'bottom-right'"
+    [content]="themeList"
+    [icon]="'icon-color'"
+    [operable]="true"
+    [popMaxWidth]="200"
+    [popoverStyle]="popoverStyle"
+  ></d-icon>
+  <ng-template #themeList>
+    <h1>主题设置</h1>
+    <h4 *ngFor="let opt of themeOptions">
+      <d-radio [name]="'themeOption'" [value]="opt.value" [(ngModel)]="activeTheme" (ngModelChange)="toggleTheme($event)">
+        {{ opt.name }}
+      </d-radio>
+    </h4>
+  </ng-template>
+</div>

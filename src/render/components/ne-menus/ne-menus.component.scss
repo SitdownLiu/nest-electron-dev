@@ -52,13 +52,13 @@
 
   .sub-menus {
     width: 140px;
-    border-right: 1px solid #eeeeee;
+    border-right: 1px solid $devui-line;
 
     .title {
       width: 100%;
       height: 42px;
-      border-top: 1px solid #eeeeee;
-      border-bottom: 1px solid #eeeeee;
+      border-top: 1px solid $devui-line;
+      border-bottom: 1px solid $devui-line;
       padding: 8px 10px;
       font-size: 16px;
     }

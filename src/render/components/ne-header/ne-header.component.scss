@@ -5,5 +5,12 @@
 
   .tools {
     width: 18vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .tools-item {
+      padding: 0 8px;
+    }
   }
 }
