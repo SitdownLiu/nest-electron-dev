@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { MenusModel } from './../../app/pages/index-win/args.interface';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -6,21 +8,33 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./ne-header.component.scss'],
 })
 export class NeHeaderComponent implements OnInit {
-  @Input() menus: any[] = [];
+  @Input() tabs: MenusModel[] = [];
+  @Input() deleteTabIds: string[] = [];
+  @Input() tabActiveId: string | number = '1';
 
-  staticData: any[] = [];
-  tabActiveId: string | number = 'tab1';
-  wrappedActiveId: string | number = 'tab1';
+  constructor(private router: Router) {}
 
-  constructor() {}
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-    for (let i = 1; i < 50; i++) {
-      this.staticData.push({
-        id: `tab${i}`,
-        title: `Tab${i}`,
-        content: `Tab${i} Content`,
-      });
+  /**
+   * 删除tab
+   * @param event
+   * @param type
+   */
+  async deleteTab(event: any, type: string) {
+    const { id } = event;
+    let index = 0;
+    await this.tabs.forEach((item, i) => (item.id === id ? (index = i) : ''));
+    await this.tabs.splice(index, 1);
+    if (id === this.tabActiveId) {
+      this.tabActiveId = this.tabs[this.tabs.length - 1].id;
+      this.router.navigate([this.tabs[this.tabs.length - 1].link]);
     }
+  }
+
+  activeTabChange(id: any) {
+    this.tabs.forEach((item) => {
+      if (item.id === id) this.router.navigate([item.link]);
+    });
   }
 }

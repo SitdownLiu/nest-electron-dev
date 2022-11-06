@@ -1,3 +1,4 @@
+import { MenusModel } from './../../app/pages/index-win/args.interface';
 import { isEmpty } from 'class-validator';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
@@ -45,6 +46,6 @@ export class NeMenusComponent implements OnInit {
    */
   activedSubMenu(event: AccordionItemClickEvent) {
     const { item } = event;
-    this.actived.emit(item);
+    this.actived.emit(item as MenusModel);
   }
 }

@@ -4,7 +4,7 @@
   </d-aside>
   <d-layout>
     <d-header>
-      <app-ne-header [menus]="tabs"></app-ne-header>
+      <app-ne-header [tabs]="tabs" [deleteTabIds]="deleteTabIds" [tabActiveId]="tabActiveId"></app-ne-header>
     </d-header>
     <d-content class="layout-wrapper-content">
       <router-outlet></router-outlet>
