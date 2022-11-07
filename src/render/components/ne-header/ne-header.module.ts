@@ -9,10 +9,15 @@ import { PopoverModule } from 'ng-devui/popover';
 import { ButtonModule } from 'ng-devui/button';
 import { TooltipModule } from 'ng-devui/tooltip';
 import { RadioModule } from 'ng-devui';
+import { NeToolsSettingComponent } from './ne-tools-setting/ne-tools-setting.component';
+import { NeToolsHelpComponent } from './ne-tools-help/ne-tools-help.component';
+import { NeToolsGitComponent } from './ne-tools-git/ne-tools-git.component';
+import { DropDownModule } from 'ng-devui/dropdown';
+import { NeToolsUserComponent } from './ne-tools-user/ne-tools-user.component';
 
 @NgModule({
-  declarations: [NeHeaderComponent, NeToolsThemeComponent],
-  imports: [CommonModule, TabsModule, IconModule, ButtonModule, PopoverModule, TooltipModule, RadioModule, FormsModule],
+  declarations: [NeHeaderComponent, NeToolsThemeComponent, NeToolsSettingComponent, NeToolsHelpComponent, NeToolsGitComponent, NeToolsUserComponent],
+  imports: [CommonModule, TabsModule, IconModule, ButtonModule, PopoverModule, TooltipModule, RadioModule, FormsModule, DropDownModule],
   exports: [NeHeaderComponent],
 })
 export class NeHeaderModule {}

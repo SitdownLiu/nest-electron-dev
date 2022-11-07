@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~ng-devui/devui-layout.css';
 @import '~@devui-design/icons/icomoon/devui-icon.css';
+@import '~ng-devui/styles-var/devui-var.scss';
 
 #ne-header-tabs {
-  width: 65vw;
+  width: 75%;
   height: 40px;
 
   .tab {
@@ -22,6 +23,28 @@
           align-items: center;
         }
       }
+    }
+  }
+}
+
+.ne-tools-user-dropdown-menu {
+  // padding: 10px;
+  padding-bottom: 15px;
+
+  .title {
+    padding: 25px 15px 15px 15px;
+    color: $devui-disabled-text;
+    margin: 0;
+  }
+
+  .item {
+    margin: 0 !important;
+    padding-left: 15px !important;
+    display: flex !important;
+    align-items: center !important;
+
+    .text {
+      padding-left: 10px;
     }
   }
 }

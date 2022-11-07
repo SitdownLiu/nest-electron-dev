@@ -1,0 +1,18 @@
+<div class="ne-tools-user" dDropDown appendToBody [appendToBodyDirections]="['leftDown', 'leftUp']">
+  <d-icon [icon]="'icon-op-member'" [operable]="true" dDropDownToggle></d-icon>
+  <ul dDropDownMenu class="ne-tools-user-dropdown-menu" role="menu">
+    <h1 class="title">用户设置</h1>
+    <li role="menuitem" class="item" dDropDownMenuItem (click)="onToggle('$event')">
+      <d-icon [icon]="'icon-member'"></d-icon>
+      <span class="text">重新登录</span>
+    </li>
+    <li role="menuitem" class="item" dDropDownMenuItem>
+      <d-icon [icon]="'icon-lock-private'"></d-icon>
+      <span class="text">修改密码</span>
+    </li>
+    <li role="menuitem" class="item" dDropDownMenuItem>
+      <d-icon [icon]="'icon-remove'"></d-icon>
+      <span class="text">退出</span>
+    </li>
+  </ul>
+</div>
