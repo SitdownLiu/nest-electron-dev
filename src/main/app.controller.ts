@@ -52,6 +52,24 @@ export class AppController {
         this.appService.login(account, password);
         break;
 
+      case 'create':
+        this.winService.createLoginWin();
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  @IpcInvoke('indexWin')
+  public async handleIndexWin(msg) {
+    const { type, data } = msg;
+
+    switch (type) {
+      case 'quit':
+        this.winService.quitIndexWin();
+        break;
+
       default:
         break;
     }

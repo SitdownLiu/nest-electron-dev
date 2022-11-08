@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { FormLayout } from 'ng-devui/form';
 import { faUser, faUnlockKeyhole } from '@fortawesome/free-solid-svg-icons';
@@ -23,9 +24,11 @@ export class LoginWinComponent implements OnInit {
     password: '',
   };
 
-  constructor() {}
+  constructor(private titleService: Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.titleService.setTitle('登录');
+  }
 
   //`TODO:` 登录
   submitLogin() {

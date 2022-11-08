@@ -26,14 +26,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        color: $devui-placeholder;
+        color: $devui-feedback-overlay-text;
 
         &:hover {
           cursor: pointer;
         }
 
         &.actived {
-          background-color: $devui-info;
+          background-color: $devui-primary;
           color: $devui-light-text;
         }
 

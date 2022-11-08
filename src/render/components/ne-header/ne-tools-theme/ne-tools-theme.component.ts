@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeServiceInit, devuiDarkTheme, Theme, ThemeService } from 'ng-devui/theme';
+import { ThemeServiceInit, ThemeService } from 'ng-devui/theme';
 import { infinityTheme, sweetTheme, provenceTheme, deepTheme, galaxyTheme } from 'ng-devui/theme-collection';
 
 @Component({
@@ -8,7 +8,7 @@ import { infinityTheme, sweetTheme, provenceTheme, deepTheme, galaxyTheme } from
   styleUrls: ['./ne-tools-theme.component.scss'],
 })
 export class NeToolsThemeComponent implements OnInit {
-  themeList: any = { infinityTheme, sweetTheme, provenceTheme, deepTheme, devuiDarkTheme, galaxyTheme };
+  themeList: any = { infinityTheme, sweetTheme, provenceTheme, deepTheme, galaxyTheme };
   themeService: ThemeService;
 
   activeTheme: string = 'infinityTheme';
@@ -18,7 +18,6 @@ export class NeToolsThemeComponent implements OnInit {
     { name: '紫罗兰主题', value: 'provenceTheme' },
     { name: '深邃夜空主题', value: 'deepTheme' },
     { name: '追光主题', value: 'galaxyTheme' },
-    { name: '暗黑主题', value: 'devuiDarkTheme' },
   ];
   popoverStyle = { backgroundColor: '', width: '160px' };
 

@@ -3,6 +3,7 @@ import { Component, EventEmitter, OnInit } from '@angular/core';
 import { faGithub, faQq } from '@fortawesome/free-brands-svg-icons';
 import { faAt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { MenusModel } from './args.interface';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-index-win',
@@ -45,9 +46,11 @@ export class IndexWinComponent implements OnInit {
   deleteTabIds: string[] = ['99'];
   tabActiveId: string | number = '1';
 
-  constructor() {}
+  constructor(private titleService: Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.titleService.setTitle('NE框架');
+  }
 
   /**
    * 监听: 二级菜单

@@ -9,6 +9,7 @@ export class WinService {
   private loginWin;
   private indexWin;
   private tray;
+  private settingWin;
 
   constructor(@Inject('IS_DEV') private readonly isDev, @Inject('MAIN_WIN') private readonly mainWin) {}
 
@@ -18,6 +19,7 @@ export class WinService {
 
   //`TODO:` 创建登录窗口
   public createLoginWin() {
+    if (!isEmpty(this.loginWin)) this.loginWin.destroy();
     const URL = this.isDev ? `http://localhost:4200/#/LoginWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#LoginWin')}`;
 
     this.loginWin = new BrowserWindow({
@@ -92,6 +94,8 @@ export class WinService {
 
   //`TODO:` 创建主窗口
   public createIndexWin(token) {
+    this.quitIndexWin();
+
     const URL = this.isDev ? `http://localhost:4200/#/IndexWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#IndexWin')}`;
     const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
 
@@ -129,4 +133,8 @@ export class WinService {
       this.tray.destroy();
     }
   }
+  /**
+   * @系统设置窗口 --------------------------------------------------------------------------------
+   */
+  //`TODO:` 创建设置窗口
 }
