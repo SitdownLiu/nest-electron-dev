@@ -20,8 +20,8 @@ export class NeToolsUserComponent implements OnInit {
   }
 
   //修改密码
-  rePassword() {
-    ipcRenderer.invoke('settingWin', { type: 'create', data: { status: 'rePassword' } });
+  account() {
+    ipcRenderer.invoke('settingWin', { type: 'create', data: { status: 'account' } });
   }
 
   //关闭

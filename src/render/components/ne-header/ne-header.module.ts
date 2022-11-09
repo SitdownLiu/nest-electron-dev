@@ -1,3 +1,4 @@
+import { NeThemeService } from './../../services/ne-theme.service';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,8 +17,26 @@ import { DropDownModule } from 'ng-devui/dropdown';
 import { NeToolsUserComponent } from './ne-tools-user/ne-tools-user.component';
 
 @NgModule({
-  declarations: [NeHeaderComponent, NeToolsThemeComponent, NeToolsSettingComponent, NeToolsHelpComponent, NeToolsGitComponent, NeToolsUserComponent],
-  imports: [CommonModule, TabsModule, IconModule, ButtonModule, PopoverModule, TooltipModule, RadioModule, FormsModule, DropDownModule],
+  declarations: [
+    NeHeaderComponent,
+    NeToolsThemeComponent,
+    NeToolsSettingComponent,
+    NeToolsHelpComponent,
+    NeToolsGitComponent,
+    NeToolsUserComponent,
+  ],
+  imports: [
+    CommonModule,
+    TabsModule,
+    IconModule,
+    ButtonModule,
+    PopoverModule,
+    TooltipModule,
+    RadioModule,
+    FormsModule,
+    DropDownModule,
+  ],
+  providers: [NeThemeService],
   exports: [NeHeaderComponent],
 })
 export class NeHeaderModule {}

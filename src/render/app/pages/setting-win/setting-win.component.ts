@@ -1,6 +1,7 @@
 import { SettingMenusModel } from './setting.interface';
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-setting-win',
@@ -43,10 +44,13 @@ export class SettingWinComponent implements OnInit {
 
   actived: string = 'base';
 
-  constructor(private titleService: Title) {}
+  constructor(private titleService: Title, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('系统设置');
+    this.activatedRoute.queryParamMap.subscribe((queryParams: any) => {
+      this.actived = queryParams.params.status;
+    });
   }
 
   /**

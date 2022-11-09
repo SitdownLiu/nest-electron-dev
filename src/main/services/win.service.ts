@@ -7,9 +7,9 @@ import { Inject, Injectable } from '@nestjs/common';
 @Injectable()
 export class WinService {
   private loginWin;
-  private indexWin;
+  public indexWin;
   private tray;
-  private settingWin;
+  public settingWin;
 
   constructor(@Inject('IS_DEV') private readonly isDev, @Inject('MAIN_WIN') private readonly mainWin) {}
 
@@ -20,7 +20,9 @@ export class WinService {
   //`TODO:` 创建登录窗口
   public createLoginWin() {
     if (!isEmpty(this.loginWin)) this.loginWin.destroy();
-    const URL = this.isDev ? `http://localhost:4200/#/LoginWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#LoginWin')}`;
+    const URL = this.isDev
+      ? `http://localhost:4200/#/LoginWin`
+      : `file://${join(app.getAppPath(), 'dist/render/index.html#LoginWin')}`;
     const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
 
     this.loginWin = new BrowserWindow({
@@ -98,7 +100,9 @@ export class WinService {
   public createIndexWin(token) {
     this.quitIndexWin();
 
-    const URL = this.isDev ? `http://localhost:4200/#/IndexWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#IndexWin')}`;
+    const URL = this.isDev
+      ? `http://localhost:4200/#/IndexWin`
+      : `file://${join(app.getAppPath(), 'dist/render/index.html#IndexWin')}`;
     const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
 
     this.indexWin = new BrowserWindow({
@@ -142,7 +146,9 @@ export class WinService {
   createSettingWin(status) {
     if (!isEmpty(this.settingWin)) this.settingWin.destroy();
 
-    const URL = this.isDev ? `http://localhost:4200/#/SettingWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#SettingWin')}`;
+    const URL = this.isDev
+      ? `http://localhost:4200/#/SettingWin`
+      : `file://${join(app.getAppPath(), 'dist/render/index.html#SettingWin')}`;
     const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
 
     this.settingWin = new BrowserWindow({

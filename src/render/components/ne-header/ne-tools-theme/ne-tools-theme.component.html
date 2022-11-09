@@ -12,7 +12,12 @@
   <ng-template #themeList>
     <h1>主题设置</h1>
     <h4 *ngFor="let opt of themeOptions">
-      <d-radio [name]="'themeOption'" [value]="opt.value" [(ngModel)]="activeTheme" (ngModelChange)="toggleTheme($event)">
+      <d-radio
+        [name]="'themeOption'"
+        [value]="opt.value"
+        [(ngModel)]="activeTheme"
+        (ngModelChange)="toggleTheme($event, true)"
+      >
         {{ opt.name }}
       </d-radio>
     </h4>

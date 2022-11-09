@@ -1,0 +1,19 @@
+<div class="setting-theme">
+  <form dForm [layout]="layoutDirection" [labelSize]="'lg'" [labelAlign]="'end'">
+    <d-form-item>
+      <d-form-label [required]="false"><span class="label">主题：</span></d-form-label>
+      <d-form-control>
+        <h4 *ngFor="let opt of themeOptions">
+          <d-radio
+            [name]="'themeOption'"
+            [value]="opt.value"
+            [(ngModel)]="activeTheme"
+            (ngModelChange)="toggleTheme($event, true)"
+          >
+            {{ opt.name }}
+          </d-radio>
+        </h4>
+      </d-form-control>
+    </d-form-item>
+  </form>
+</div>
