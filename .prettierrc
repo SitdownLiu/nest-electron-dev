@@ -5,7 +5,7 @@
   "jsxSingleQuote": true,
   "bracketSpacing": true,
   "jsxBracketSameLine": true,
-  "printWidth": 140,
+  "printWidth": 120,
   "endOfLine": "auto",
   "proseWrap": "preserve",
   "trailingComma": "es5",

@@ -6,7 +6,7 @@
       <d-icon [icon]="'icon-member'"></d-icon>
       <span class="text">重新登录</span>
     </li>
-    <li role="menuitem" class="item" dDropDownMenuItem>
+    <li role="menuitem" class="item" dDropDownMenuItem (click)="rePassword()">
       <d-icon [icon]="'icon-lock-private'"></d-icon>
       <span class="text">修改密码</span>
     </li>

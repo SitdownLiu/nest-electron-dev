@@ -1,3 +1,4 @@
+import { SettingWinComponent } from './pages/setting-win/setting-win.component';
 import { LoginWinComponent } from './pages/login-win/login-win.component';
 import { NgModule } from '@angular/core';
 import type { ExtraOptions, Routes } from '@angular/router';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'LoginWin',
     component: LoginWinComponent,
+  },
+  {
+    path: 'SettingWin',
+    component: SettingWinComponent,
   },
 ];
 const config: ExtraOptions = { useHash: true };

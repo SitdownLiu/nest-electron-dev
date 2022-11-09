@@ -21,10 +21,12 @@ export class WinService {
   public createLoginWin() {
     if (!isEmpty(this.loginWin)) this.loginWin.destroy();
     const URL = this.isDev ? `http://localhost:4200/#/LoginWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#LoginWin')}`;
+    const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
 
     this.loginWin = new BrowserWindow({
       width: 460,
       height: 350,
+      icon: icon,
       resizable: false,
       autoHideMenuBar: true,
       frame: false,
@@ -137,4 +139,30 @@ export class WinService {
    * @系统设置窗口 --------------------------------------------------------------------------------
    */
   //`TODO:` 创建设置窗口
+  createSettingWin(status) {
+    if (!isEmpty(this.settingWin)) this.settingWin.destroy();
+
+    const URL = this.isDev ? `http://localhost:4200/#/SettingWin` : `file://${join(app.getAppPath(), 'dist/render/index.html#SettingWin')}`;
+    const icon = this.isDev ? 'build/icons/icon.ico' : `${process.cwd()}/resources/icons/icon.ico`;
+
+    this.settingWin = new BrowserWindow({
+      width: 640,
+      height: 480,
+      resizable: false,
+      autoHideMenuBar: !this.isDev,
+      icon: icon,
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: true,
+        preload: join(__dirname, '../preload/index.js'),
+        devTools: this.isDev,
+      },
+    });
+
+    this.settingWin.loadURL(`${URL}?status=${isEmpty(status) ? 'system' : status}`);
+
+    this.settingWin.on('closed', () => {
+      this.settingWin.destroy();
+    });
+  }
 }

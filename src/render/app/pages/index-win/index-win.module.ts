@@ -1,3 +1,4 @@
+import { NeFooterModule } from './../../../components/ne-footer/ne-footer.module';
 import { NeHeaderModule } from './../../../components/ne-header/ne-header.module';
 import { NeMenusModule } from './../../../components/ne-menus/ne-menus.module';
 import { DescriptionModule } from './description/description.module';
@@ -24,6 +25,7 @@ import { MarkdownModule } from 'ngx-markdown';
     DescriptionModule,
     NeMenusModule,
     NeHeaderModule,
+    NeFooterModule,
   ],
 })
 export class IndexWinModule {}

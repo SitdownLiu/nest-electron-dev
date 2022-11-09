@@ -19,6 +19,11 @@ export class NeToolsUserComponent implements OnInit {
     ipcRenderer.invoke('loginWin', { type: 'create' });
   }
 
+  //修改密码
+  rePassword() {
+    ipcRenderer.invoke('settingWin', { type: 'create', data: { status: 'rePassword' } });
+  }
+
   //关闭
   quitIndexWin() {
     ipcRenderer.invoke('indexWin', { type: 'quit' });

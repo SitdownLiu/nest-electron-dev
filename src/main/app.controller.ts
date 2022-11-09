@@ -35,6 +35,10 @@ export class AppController {
     return `The main process received your message: ${msg} at time: ${this.appService.getTime()}`;
   }
 
+  /**
+   * 进程消息: 登录窗口
+   * @param msg
+   */
   @IpcInvoke('loginWin')
   public async handleLoginWin(msg) {
     const { type, data } = msg;
@@ -61,6 +65,10 @@ export class AppController {
     }
   }
 
+  /**
+   * 进程消息: 主窗口
+   * @param msg
+   */
   @IpcInvoke('indexWin')
   public async handleIndexWin(msg) {
     const { type, data } = msg;
@@ -68,6 +76,26 @@ export class AppController {
     switch (type) {
       case 'quit':
         this.winService.quitIndexWin();
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  /**
+   * 进程消息: 系统设置窗口
+   * @param msg
+   */
+  @IpcInvoke('settingWin')
+  public async handleSettingWin(msg) {
+    const { type, data } = msg;
+
+    switch (type) {
+      case 'create':
+        const { status } = data;
+        this.winService.createSettingWin(status);
+
         break;
 
       default:

@@ -1,7 +1,5 @@
 import { isEmpty } from 'class-validator';
 import { Component, EventEmitter, OnInit } from '@angular/core';
-import { faGithub, faQq } from '@fortawesome/free-brands-svg-icons';
-import { faAt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { MenusModel } from './args.interface';
 import { Title } from '@angular/platform-browser';
 
@@ -11,11 +9,6 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./index-win.component.scss'],
 })
 export class IndexWinComponent implements OnInit {
-  faGithub = faGithub;
-  faQq = faQq;
-  faAt = faAt;
-  faEnvelope = faEnvelope;
-
   logoSrc = 'render/assets/logo.png';
   menus: MenusModel[] = [
     {

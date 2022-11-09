@@ -1,0 +1,21 @@
+<d-layout class="layout-wrapper">
+  <d-aside>
+    <div class="menus">
+      <div
+        class="item"
+        *ngFor="let item of menus"
+        [ngClass]="item.status === actived ? 'actived' : ''"
+        (click)="toggleMenuItem(item)"
+      >
+        <i class="icon" [ngClass]="item.icon"></i>
+        <span class="text">{{ item.title }}</span>
+      </div>
+    </div>
+  </d-aside>
+  <d-layout>
+    <d-content class="layout-wrapper-content"> content </d-content>
+    <d-footer>
+      <app-ne-footer></app-ne-footer>
+    </d-footer>
+  </d-layout>
+</d-layout>

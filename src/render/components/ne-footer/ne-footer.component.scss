@@ -1,0 +1,11 @@
+@import '~ng-devui/styles-var/devui-var.scss';
+
+.ne-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .item {
+    padding: 0 10px;
+  }
+}
