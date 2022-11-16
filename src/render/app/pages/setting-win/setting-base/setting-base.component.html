@@ -1,0 +1,44 @@
+<div class="setting-base">
+  <form dForm [layout]="layoutDirection" [labelSize]="'lg'" [labelAlign]="'end'">
+    <d-form-item>
+      <d-form-label [required]="false"><span class="label">开机自启：</span></d-form-label>
+      <d-form-control>
+        <div class="control">
+          <d-toggle></d-toggle>
+        </div>
+      </d-form-control>
+    </d-form-item>
+    <d-form-item>
+      <d-form-label [required]="false"><span class="label">启动时检查更新：</span></d-form-label>
+      <d-form-control>
+        <div class="control">
+          <d-toggle></d-toggle>
+        </div>
+      </d-form-control>
+    </d-form-item>
+    <d-form-item>
+      <d-form-label [required]="false"><span class="label">接收通知：</span></d-form-label>
+      <d-form-control>
+        <div class="control">
+          <d-toggle></d-toggle>
+        </div>
+      </d-form-control>
+    </d-form-item>
+    <d-form-item>
+      <d-form-label [required]="false"><span class="label">自动登录：</span></d-form-label>
+      <d-form-control>
+        <div class="control">
+          <d-toggle></d-toggle>
+        </div>
+      </d-form-control>
+    </d-form-item>
+    <d-form-item>
+      <d-form-label [required]="false"><span class="label">点击关闭时：</span></d-form-label>
+      <d-form-control>
+        <div class="control">
+          <d-radio-group [name]="'city'" [values]="['最小化', '退出']" [direction]="'row'"> </d-radio-group>
+        </div>
+      </d-form-control>
+    </d-form-item>
+  </form>
+</div>

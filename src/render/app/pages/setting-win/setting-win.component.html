@@ -14,8 +14,16 @@
   </d-aside>
   <d-layout>
     <d-content class="layout-wrapper-content">
+      <!-- 基础设置 -->
+      <app-setting-base *ngIf="actived === 'base'"></app-setting-base>
       <!-- 主题设置 -->
-      <app-setting-theme></app-setting-theme>
+      <app-setting-theme *ngIf="actived === 'theme'"></app-setting-theme>
+      <!-- 账户设置 -->
+      <app-setting-account *ngIf="actived === 'account'"></app-setting-account>
+      <!-- 版本说明 -->
+      <app-setting-version *ngIf="actived === 'version'"></app-setting-version>
+      <!-- 关于我们 -->
+      <app-setting-about *ngIf="actived === 'about'"></app-setting-about>
     </d-content>
     <d-footer>
       <app-ne-footer></app-ne-footer>

@@ -37,12 +37,12 @@ d-aside {
 
       &.actived {
         background-color: $devui-base-bg;
-        color: $devui-primary;
+        color: $devui-primary-active;
         font-weight: 600;
       }
 
       &:hover {
-        background-color: $devui-list-item-active-hover-bg;
+        background-color: $devui-list-item-hover-bg;
       }
 
       .text {
