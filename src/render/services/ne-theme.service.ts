@@ -24,7 +24,7 @@ export class NeThemeService {
   }
 
   OnInit(): void {
-    this.toggleTheme('infinityTheme');
+    // this.toggleTheme('infinityTheme');
   }
 
   /**
@@ -34,7 +34,7 @@ export class NeThemeService {
    */
   toggleTheme(theme: string, isSend?: boolean) {
     this.themeService.applyTheme(this.themeList[theme]);
-    isSend ? ipcRenderer.invoke('setting', { type: 'theme', data: { status: theme } }) : '';
+    isSend ? ipcRenderer.invoke('setting', { type: 'theme', data: { operate: 'set', textValue: theme } }) : '';
     return Promise.resolve(theme);
   }
 

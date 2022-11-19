@@ -19,11 +19,13 @@ export class SettingThemeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.toggleTheme('infinityTheme');
-
+    ipcRenderer.invoke('setting', { type: 'theme', data: { operate: 'get' } });
     ipcRenderer.on('re-setting', (event, msg) => {
       const { type, data } = msg;
-      if (type === 'theme') this.toggleTheme(data.status);
+      if (type === 'theme') {
+        this.toggleTheme(data.textValue);
+        this.activeTheme = data.textValue;
+      }
     });
   }
 

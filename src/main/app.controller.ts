@@ -1,3 +1,4 @@
+import { SettingService } from './services/setting.service';
 import { ipcMain } from 'electron';
 import { Controller, Inject } from '@nestjs/common';
 import { WinService } from './services/win.service';
@@ -9,7 +10,8 @@ export class AppController {
   constructor(
     @Inject('MAIN_WIN') private readonly mainWin,
     private readonly appService: AppService,
-    private readonly winService: WinService
+    private readonly winService: WinService,
+    private readonly settingService: SettingService
   ) {
     this.appService.initWindow(); //初始化
 
@@ -106,9 +108,9 @@ export class AppController {
     const { type, data } = msg;
 
     switch (type) {
-      case 'theme':
-        this.winService.indexWin.webContents.send('re-setting', msg);
-        this.winService.settingWin.webContents.send('re-setting', msg);
+      case 'theme': //主题设置
+        const { operate } = data;
+        operate === 'get' ? this.settingService.getTheme() : this.settingService.setTheme(msg);
         break;
 
       default:

@@ -1,7 +1,10 @@
+import { NeThemeService } from './../../../services/ne-theme.service';
 import { SettingMenusModel } from './setting.interface';
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+const { ipcRenderer } = window;
 
 @Component({
   selector: 'app-setting-win',
@@ -44,12 +47,22 @@ export class SettingWinComponent implements OnInit {
 
   actived: string = 'base';
 
-  constructor(private titleService: Title, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private titleService: Title,
+    private activatedRoute: ActivatedRoute,
+    private neThemeService: NeThemeService
+  ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('系统设置');
     this.activatedRoute.queryParamMap.subscribe((queryParams: any) => {
       this.actived = queryParams.params.status;
+    });
+
+    ipcRenderer.invoke('setting', { type: 'theme', data: { operate: 'get' } });
+    ipcRenderer.on('re-setting', (event, msg) => {
+      const { type, data } = msg;
+      if (type === 'theme') this.neThemeService.toggleTheme(data.textValue);
     });
   }
 
