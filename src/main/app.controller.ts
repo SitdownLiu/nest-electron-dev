@@ -106,11 +106,15 @@ export class AppController {
   @IpcInvoke('setting')
   public async handleSetting(msg) {
     const { type, data } = msg;
+    const { operate } = data;
 
     switch (type) {
       case 'theme': //主题设置
-        const { operate } = data;
         operate === 'get' ? this.settingService.getTheme() : this.settingService.setTheme(msg);
+        break;
+
+      case 'base':
+        operate === 'get' ? this.settingService.getBase() : this.settingService.setBase(data);
         break;
 
       default:

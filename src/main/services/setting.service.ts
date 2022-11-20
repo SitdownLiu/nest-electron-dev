@@ -20,14 +20,16 @@ export class SettingService {
     const settings = await this.setting.count();
 
     //写入默认设置
+    // SettingDefault.forEach((item) => this.setting.save(item));
     if (settings === 0) {
       SettingDefault.forEach((item) => this.setting.save(item));
     }
   }
 
   /**
-   * 查询主题
+   * @主题设置Theme -------------------------------------------------------------------------------
    */
+  // 查询主题
   async getTheme() {
     const themeSetting = await this.setting.findOne({ where: { name: 'theme' } });
     const msg = { type: 'theme', data: { operate: 'get', textValue: themeSetting.textValue } };
@@ -47,5 +49,20 @@ export class SettingService {
     await this.setting.save(themeSetting);
 
     this.getTheme();
+  }
+
+  /**
+   * @基础设置Theme -------------------------------------------------------------------------------
+   */
+  // 查询基础设置
+  async getBase() {
+    const baseSettings = await this.setting.find({ where: { type: 'base' } });
+    const msg = { type: 'base', data: { operate: 'get', settings: baseSettings } };
+    this.winService.settingWin.webContents.send('re-setting', msg);
+  }
+
+  async setBase(data) {
+    const { setting } = data;
+    this.setting.save(setting);
   }
 }

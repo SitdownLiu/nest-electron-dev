@@ -4,7 +4,11 @@
       <d-form-label [required]="false"><span class="label">开机自启：</span></d-form-label>
       <d-form-control>
         <div class="control">
-          <d-toggle></d-toggle>
+          <d-toggle
+            name="autoStart"
+            [(ngModel)]="settings.autoStart.statusValue"
+            (change)="settingChange($event, 'autoStart')"
+          ></d-toggle>
         </div>
       </d-form-control>
     </d-form-item>
@@ -12,7 +16,11 @@
       <d-form-label [required]="false"><span class="label">启动时检查更新：</span></d-form-label>
       <d-form-control>
         <div class="control">
-          <d-toggle></d-toggle>
+          <d-toggle
+            name="autoUpdate"
+            [(ngModel)]="settings.autoUpdate.statusValue"
+            (change)="settingChange($event, 'autoUpdate')"
+          ></d-toggle>
         </div>
       </d-form-control>
     </d-form-item>
@@ -20,7 +28,11 @@
       <d-form-label [required]="false"><span class="label">接收通知：</span></d-form-label>
       <d-form-control>
         <div class="control">
-          <d-toggle></d-toggle>
+          <d-toggle
+            name="inform"
+            [(ngModel)]="settings.inform.statusValue"
+            (change)="settingChange($event, 'inform')"
+          ></d-toggle>
         </div>
       </d-form-control>
     </d-form-item>
@@ -28,7 +40,11 @@
       <d-form-label [required]="false"><span class="label">自动登录：</span></d-form-label>
       <d-form-control>
         <div class="control">
-          <d-toggle></d-toggle>
+          <d-toggle
+            name="autoLogin"
+            [(ngModel)]="settings.autoLogin.statusValue"
+            (change)="settingChange($event, 'autoLogin')"
+          ></d-toggle>
         </div>
       </d-form-control>
     </d-form-item>
@@ -36,7 +52,15 @@
       <d-form-label [required]="false"><span class="label">点击关闭时：</span></d-form-label>
       <d-form-control>
         <div class="control">
-          <d-radio-group [name]="'city'" [values]="['最小化', '退出']" [direction]="'row'"> </d-radio-group>
+          <d-radio-group
+            [direction]="'row'"
+            [name]="'closeEvent'"
+            [(ngModel)]="settings.closeEvent.textValue"
+            (change)="settingChange($event, 'closeEvent')"
+          >
+            <d-radio [name]="'closeEvent'" value="minimizable">最小化</d-radio>
+            <d-radio [name]="'closeEvent'" value="quit">退出</d-radio>
+          </d-radio-group>
         </div>
       </d-form-control>
     </d-form-item>
